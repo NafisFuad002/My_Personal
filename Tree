@@ -8,7 +8,7 @@ from graphviz import Digraph
 from IPython.display import Image
 
 # Create Digraph with Left-to-Right layout
-dot = Digraph(comment='Tree', graph_attr={'rankdir':'LR'})  # LR = Left to Right
+dot = Digraph(comment='Tree', graph_attr={'rankdir':'TB'})  # TB = Top to Bottom
 
 # koita node hobe ta declare korte hobe 'node_name', 'ki_nam_a_chinbo', shape
 # States
