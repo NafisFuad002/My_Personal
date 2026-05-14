@@ -1,0 +1,67 @@
+# ai code ar maddhome ami j kono Tree/Graph state,edge,node draw korte parbo
+# ata google colab a kaj korbe
+
+# Install graphviz if not installed
+!pip install graphviz
+
+from graphviz import Digraph
+from IPython.display import Image
+
+# Create Digraph with Left-to-Right layout
+dot = Digraph(comment='Tree', graph_attr={'rankdir':'LR'})  # LR = Left to Right
+
+# koita node hobe ta declare korte hobe 'node_name', 'ki_nam_a_chinbo', shape
+# States
+dot.node('Player', 'Player', shape='box')
+
+dot.node('Messi', 'Messi', shape='box')
+dot.node('Ronaldo', 'Ronaldo', shape='box')
+dot.node('de Villiers', 'de Villiers', shape='box')
+dot.node('Tenz', 'Tenz', shape='box')
+
+dot.node('Arg', 'Arg', shape='box')
+dot.node('Prt', 'Prt', shape='box')
+dot.node('Zaf', 'Zaf', shape='box')
+dot.node('Cnd', 'Cnd', shape='box')
+
+dot.node('Football', 'Football', shape='box')
+dot.node('Esports', 'Esports', shape='box')
+dot.node('Cricket', 'Cricket', shape='box')
+
+dot.node('Forward', 'Forward', shape='box')
+dot.node('Batsman', 'Batsman', shape='box')
+dot.node('Duelist', 'Duelist', shape='box')
+
+dot.node('37', '37', shape='box')
+dot.node('40', '40 ', shape='box')
+dot.node('23', '23', shape='box')
+dot.node('41', '41 ', shape='box')
+
+# Transitions ['st_node', 'end_node', 'edge_connection_name']
+dot.edge('Player', 'Football', label='Sports')
+dot.edge('Player', 'Cricket', label='Sports')
+dot.edge('Player', 'Esports', label='Sports')
+
+dot.edge('Football', 'Forward', label='Role')
+dot.edge('Forward', 'Arg', label='Country')
+dot.edge('Forward', 'Prt', label='Country')
+dot.edge('Arg', 'Messi', label='Name')
+dot.edge('Prt', 'Ronaldo', label='Name')
+dot.edge('Messi', '37', label='Age')
+dot.edge('Ronaldo', '40', label='Age')
+
+dot.edge('Cricket', 'Batsman', label='Role')
+dot.edge('Batsman', 'Zaf', label='Country')
+dot.edge('Zaf', 'de Villiers', label='Name')
+dot.edge('de Villiers', '41', label='Age')
+
+dot.edge('Esports', 'Duelist', label='Role')
+dot.edge('Duelist', 'Cnd', label='Country')
+dot.edge('Cnd', 'Tenz', label='Name')
+dot.edge('Tenz', '23', label='Age')
+
+# Save PNG file
+dot.render('Tree', format='png')
+
+# Display in Colab
+Image('Tree.png')
